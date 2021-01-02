@@ -5,8 +5,8 @@ var database;
 function preload()
 {
   //load images here
-  dogImage=loadImage("images"/dogImg.png);
-  happyDogImage=loadImage("images"/dogImg1.png);
+  dogImage=loadImage("images/dogImg.png");
+  happyDogImage=loadImage("images/dogImg1.png");
 }
 
 function setup() {
@@ -17,16 +17,19 @@ function setup() {
 
   dog=createSprite(250,250,10,10);
   dog.addImage(dogImage);
-  if(keyWentDown(UP_ARROW)){
-    writeStock(foodS);
-    dog.addImage(happyDogImage);
-  }
+  
+  
 }
 
 
 function draw() {  
 background(46,139,87);
-dog.display();
+if(keyWentDown(UP_ARROW)){
+  writeStock(foodS);
+  dog.addImage(happyDogImage);
+}
+text("food remaining:"+foodS,200,220);
+text("press up arrow to fed the dog",200,100);
   drawSprites();
   //add styles here
 
